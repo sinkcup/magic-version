@@ -1,0 +1,8 @@
+version: '1.0.2'
+id: magic_version
+name: '魔法版本号'
+description: '根据 git tag、branch 等场景自动生成版本号'
+category: artifact
+author: sinkcup
+entry:
+  start: bash $QCI_PLUGIN_RUNTIME/src/magic-version.sh
