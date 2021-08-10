@@ -26,7 +26,7 @@ setup() {
 @test "check env file" {
     export TAG_NAME=1.2.0
     export CI_ENV_FILE="/tmp/.env"
-    rm $CI_ENV_FILE
+    rm -f $CI_ENV_FILE
     run magic-version.sh
     assert_output --partial '1.2.0'
     run cat $CI_ENV_FILE
