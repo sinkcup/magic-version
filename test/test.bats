@@ -22,3 +22,13 @@ setup() {
     run magic-version.sh
     assert_output 'feature-login-3a11e12'
 }
+
+@test "check env file" {
+    export TAG_NAME=1.2.0
+    export CI_ENV_FILE="/tmp/.env"
+    rm $CI_ENV_FILE
+    run magic-version.sh
+    assert_output --partial '1.2.0'
+    run cat $CI_ENV_FILE
+    assert_output --partial 'MAGIC_VERSION=1.2.0'
+}
