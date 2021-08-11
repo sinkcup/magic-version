@@ -1,0 +1,7 @@
+name: 'Magic Version'
+description: 'calculate version by git tag, branch and pull request'
+runs:
+  using: "composite"
+  steps:
+    - run: ${{ github.action_path }}/src/magic-version.sh
+      shell: bash
