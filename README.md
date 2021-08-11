@@ -9,6 +9,7 @@ when   | version
 tag    | 1.2.0
 branch | main-3a11e12
 MR     | mr-123-3a11e12
+PR(GitHub) | pr-123-3a11e12
 
 ## CODING
 
