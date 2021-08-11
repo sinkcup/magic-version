@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/sinkcup/magic-version/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/sinkcup/magic-version/actions/workflows/ci.yml)
 
-calculate version for CI (CODING/Jenkins, GitHub Actions)
+calculate version for CI (CODING, GitHub Actions)
 
 when   | version
 -------|---------
@@ -10,7 +10,7 @@ tag    | 1.2.0
 branch | main-3a11e12
 MR     | mr-123-3a11e12
 
-## CODING and Jenkins
+## CODING
 
 ```groovy
 stage('pack') {
