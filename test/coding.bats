@@ -16,3 +16,9 @@ setup() {
     run magic-version.sh
     assert_output 'feature-login-3a11e12'
 }
+
+@test "merge request" {
+    export CHANGE_ID=123
+    run magic-version.sh
+    assert_output 'mr-123-3a11e12'
+}
