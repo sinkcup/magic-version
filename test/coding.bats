@@ -3,6 +3,7 @@ setup() {
     _common_setup
     export CI_ENV_FILE="/tmp/coding.env"
     export GIT_COMMIT_SHORT=3a11e12
+    export GITHUB_REF=""
 }
 
 @test "tag name" {
