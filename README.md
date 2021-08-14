@@ -2,7 +2,7 @@
 
 [![Test](https://github.com/sinkcup/magic-version/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/sinkcup/magic-version/actions/workflows/ci.yml)
 
-calculate version for CI (CODING, GitHub Actions)
+calculate version for CI (CODING, GitHub Actions, Jenkins)
 
 when   | version
 -------|---------
@@ -37,6 +37,22 @@ stage('pack') {
       readProperties(file: env.CI_ENV_FILE).each {key, value -> env[key] = value }
     }
     echo "${env.MAGIC_VERSION}"
+  }
+}
+```
+
+## Jenkins
+
+```groovy
+stage('pack') {
+  steps {
+    // sh 'curl -sLo- http://get.bpkg.sh | bash' // install bpkg
+    // sh 'clib install bpkg/bpkg' // install bpkg
+    sh 'bpkg install sinkcup/magic-version@v1.1.1'
+    script {
+        magic_version = sh(script:'./deps/bin/magic-version', returnStdout: true).trim()
+    }
+    echo "${magic_version}"
   }
 }
 ```
