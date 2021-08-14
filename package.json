@@ -1,0 +1,6 @@
+{
+  "name": "magic-version",
+  "version": "1.1.1",
+  "description": "calculate version from CI env",
+  "scripts": [ "src/magic-version.sh" ]
+}
