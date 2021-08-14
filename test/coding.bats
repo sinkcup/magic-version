@@ -23,3 +23,8 @@ setup() {
     run magic-version.sh
     assert_output 'mr-123-3a11e12'
 }
+
+@test "not env" {
+    run magic-version.sh
+    assert_output --partial "env variables not found"
+}

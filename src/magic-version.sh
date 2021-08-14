@@ -28,8 +28,11 @@ if [ -n "$TAG_NAME" ]; then
   MAGIC_VERSION=${TAG_NAME//\//-}
 elif [ -n "$CHANGE_ID" ]; then
   MAGIC_VERSION=${MERGE_REQUEST_VERSION_PREFIX}-${CHANGE_ID}-${GIT_COMMIT_SHORT}
-else
+elif [ -n "$BRANCH_NAME" ]; then
   MAGIC_VERSION=${BRANCH_NAME//\//-}-${GIT_COMMIT_SHORT}
+else
+  echo -e "\033[31m""env variables not found""\033[0m"
+  exit 1
 fi
 
 echo "$MAGIC_VERSION"
