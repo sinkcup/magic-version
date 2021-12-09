@@ -25,7 +25,7 @@ esac
 fi
 
 if [ -n "$TAG_NAME" ]; then
-  MAGIC_VERSION=${TAG_NAME//\//-}
+  MAGIC_VERSION=${TAG_NAME#*"$TAG_PREFIX"}
 elif [ -n "$CHANGE_ID" ]; then
   MAGIC_VERSION=${MERGE_REQUEST_VERSION_PREFIX}-${CHANGE_ID}-${GIT_COMMIT_SHORT}
 elif [ -n "$BRANCH_NAME" ]; then

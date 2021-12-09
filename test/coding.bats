@@ -12,6 +12,26 @@ setup() {
     assert_output '1.2.0'
 }
 
+@test "tag name prefix with v" {
+    export TAG_NAME=v1.2.0
+    run magic-version.sh
+    assert_output 'v1.2.0'
+}
+
+@test "tag name clear prefix with v" {
+    export TAG_NAME=v1.2.0
+    export TAG_PREFIX=v
+    run magic-version.sh
+    assert_output '1.2.0'
+}
+
+@test "tag name clear prefix with release-v" {
+    export TAG_NAME=release-v1.2.0
+    export TAG_PREFIX=release-v
+    run magic-version.sh
+    assert_output '1.2.0'
+}
+
 @test "branch" {
     export BRANCH_NAME=feature/login
     run magic-version.sh
