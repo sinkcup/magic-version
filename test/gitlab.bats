@@ -3,6 +3,7 @@ setup() {
     _common_setup
     export GITLAB_CI=true
     export CI_COMMIT_SHORT_SHA=3a11e12
+    export GITHUB_REF=""
 }
 
 @test "tag name" {
