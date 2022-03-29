@@ -21,7 +21,14 @@ if [ -n "$GITHUB_REF" ]; then
       TMP=${GITHUB_REF#refs/pull/}
       CHANGE_ID=${TMP%/*}
       ;;
-esac
+  esac
+fi
+
+if [ -n "$GITLAB_CI" ]; then
+  GIT_COMMIT_SHORT="$CI_COMMIT_SHORT_SHA"
+  TAG_NAME="$CI_COMMIT_TAG"
+  CHANGE_ID="$CI_MERGE_REQUEST_ID"
+  BRANCH_NAME="$CI_COMMIT_REF_SLUG"
 fi
 
 if [ -n "$TAG_NAME" ]; then
